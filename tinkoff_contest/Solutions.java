@@ -19,14 +19,14 @@ public class Solutions {
         try (
                 FileInputStream fileInputStream = new FileInputStream("test.txt");
         ) {
-            byte[] readBytes = fileInputStream.readAllBytes();
-            System.out.println(Arrays.toString(readBytes));
-            for (int i = 0; i < readBytes.length; i++) {
-                if(i > 2){
-                    System.out.print((char) readBytes[i]);
-                    System.out.print(",");
-                }
-            }
+//            byte[] readBytes = fileInputStream.readAllBytes();
+//            System.out.println(Arrays.toString(readBytes));
+//            for (int i = 0; i < readBytes.length; i++) {
+//                if(i > 2){
+//                    System.out.print((char) readBytes[i]);
+//                    System.out.print(",");
+//                }
+//            }
         }
     }
 
