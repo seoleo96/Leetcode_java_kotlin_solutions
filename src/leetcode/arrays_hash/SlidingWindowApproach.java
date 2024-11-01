@@ -3,7 +3,9 @@ package leetcode.arrays_hash;
 public class SlidingWindowApproach {
 
     public static void main(String[] args) {
-
+        int[] nums = {1, -5, -2, 3, 4};
+        int k = 3;
+        printMaxInSubArrayWidthK(nums, k);
     }
 
     //{1, -5, -2, 3, 4} k = 3 == print(1,3,4)
@@ -11,12 +13,18 @@ public class SlidingWindowApproach {
         int currentMax = Integer.MIN_VALUE;
         int until = nums.length - k + 1;
         for (int i = 0; i < until; i++) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("[");
             for (int j = i; j < until + i; j++) {
-                if(nums[j] > currentMax){
+                sb.append(nums[j]);
+                sb.append(",");
+                if (nums[j] > currentMax) {
                     currentMax = nums[j];
                 }
             }
-            System.out.print(currentMax + " ");
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append("]");
+            System.out.println("Interval -> " + sb + ", MAX -> " + currentMax);
         }
     }
 
