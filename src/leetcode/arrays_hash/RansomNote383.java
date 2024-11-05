@@ -10,8 +10,27 @@ public class RansomNote383 {
 
     }
 
-    //brute force n^2
+    //my second brute force
     private static boolean canConstruct(String ransomNote, String magazine){
+        int[] count = new int[26]; //size of english letters
+        for (char ch : ransomNote.toCharArray()) {
+            count[ch - 'a']++;
+        }
+        for (char ch : magazine.toCharArray()) {
+            if(count[ch - 'a'] > 0){
+                count[ch - 'a']--;
+            }
+        }
+        for (char ch : ransomNote.toCharArray()) {
+            if(count[ch - 'a'] > 0){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    //brute force n^2
+    private static boolean canConstruct1(String ransomNote, String magazine){
         int[] count = new int[26];
         int lastFoundedIndex = 0;
         char lastSearchedChar = 95;
