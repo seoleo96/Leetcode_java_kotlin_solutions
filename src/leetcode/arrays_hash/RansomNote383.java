@@ -9,9 +9,21 @@ public class RansomNote383 {
 
 
     }
+    //not my solution, chinese patsan have good idea, idea is from my brute force first solution
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] count = new int[26]; // size of english letters
+        for (char ch : ransomNote.toCharArray()) {
+            int index = magazine.indexOf(ch, count[ch % 26]);
+            if(index < 0){
+                return false;
+            }
+            count[ch % 26] = index + 1;
+        }
+        return true;
+    }
 
     ////my 3'th brute force
-    public boolean canConstruct(String ransomNote, String magazine) {
+    public boolean canConstruct3(String ransomNote, String magazine) {
         int[] count = new int[26]; // size of english letters
         for (char ch : magazine.toCharArray()) {
             count[ch - 'a']++;
