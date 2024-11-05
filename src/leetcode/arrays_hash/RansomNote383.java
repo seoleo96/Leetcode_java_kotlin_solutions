@@ -10,8 +10,24 @@ public class RansomNote383 {
 
     }
 
+    ////my 3'th brute force
+    public boolean canConstruct(String ransomNote, String magazine) {
+        int[] count = new int[26]; // size of english letters
+        for (char ch : magazine.toCharArray()) {
+            count[ch - 'a']++;
+        }
+        for (char ch : ransomNote.toCharArray()) {
+            if (count[ch - 'a'] > 0) {
+                count[ch - 'a']--;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
     //my second brute force
-    private static boolean canConstruct(String ransomNote, String magazine){
+    private static boolean canConstruct2(String ransomNote, String magazine){
         int[] count = new int[26]; //size of english letters
         for (char ch : ransomNote.toCharArray()) {
             count[ch - 'a']++;
