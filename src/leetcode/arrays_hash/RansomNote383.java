@@ -1,5 +1,8 @@
 package leetcode.arrays_hash;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class RansomNote383 {
 
 
@@ -7,7 +10,9 @@ public class RansomNote383 {
         String ransomNote = "bhjdigif";
         String magazine = "dbjdhdehgbcdjjgadeegdbegehjffie";
 
-
+        Map<String, String> map  = new HashMap<>();
+        map.putIfAbsent("a", "a");
+        System.out.println(map);
     }
     //not my solution, chinese patsan have good idea, idea is from my brute force first solution
     public boolean canConstruct(String ransomNote, String magazine) {

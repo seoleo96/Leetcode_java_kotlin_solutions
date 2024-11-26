@@ -1,6 +1,8 @@
 package leetcode.arrays_hash;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FindWordsThatCanBeFormedByCharacters1160 {
 
