@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class TestJava {
 
@@ -19,6 +20,7 @@ public class TestJava {
         Map<Pair, Integer> visited = new HashMap<>();
         int x = 0, y = 0;
         visited.put(new Pair(x, y), 1);
+        int count = 0;
 
         for (char direction : route.toCharArray()) {
             switch (direction) {
@@ -38,7 +40,6 @@ public class TestJava {
             visited.put(new Pair(x, y), visited.getOrDefault(new Pair(x, y), 0) + 1);
         }
 
-        int count = 0;
         for (int value : visited.values()) {
             if (value > 1) {
                 count++;
@@ -68,11 +69,19 @@ public class TestJava {
         public int hashCode() {
             return Objects.hash(x, y);
         }
+
+        @Override
+        public String toString() {
+            return "Pair{" +
+                    "x=" + x +
+                    ", y=" + y +
+                    '}';
+        }
     }
 
     public static void main(String[] args) {
-        String route = "DRLUU";
-        int result = countDoublePraised(route);
+        String test = new Scanner(System.in).nextLine();
+        int result = countDoublePraised(test);
         System.out.println(result); // Вывод: 3
     }
 }
